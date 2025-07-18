@@ -1,4 +1,4 @@
-const posts = [
+const postsList = [
     {
         id: 1,
         title: "Ciambellone",
@@ -44,4 +44,4 @@ const posts = [
     }
 ];
 
-export default posts;
+export default postsList;
