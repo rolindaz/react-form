@@ -5,7 +5,7 @@ Aggiungere la possibilità di cancellare ciascun articolo utilizzando un'icona.
 */
 
 // Devo aggiungere in pagina l'icona generandola insieme al list item nel ciclo map
-// Per visualizzare la lista creo una ul stilizzata e ciclo dentro l'array di articoli usando il metodo map() e isolo i titoli con la dot notation selezionando la proprietà title dell'oggetto post
+// Creo una funzione che elimina un post in base all'indice, genera un nuovo array in cui quell'indice non è incluso grazie a filter e richiama il setState per aggiornare la lista
 
 /*
 Consegna:
@@ -34,6 +34,14 @@ function App() {
     setPosts([...posts, { title: newPost }])
   }
 
+  {/* B1: Creo una funzione che elimina un post in base all'indice, genera un nuovo array in cui quell'indice non è incluso grazie a filter e richiama il setState per aggiornare la lista */ }
+
+  function postRemover(i) {
+    const updatedPosts = posts.filter((post, i) => {
+      return index !== i
+    })
+    setPosts(updatedPosts)
+  }
 
   return (
     <>
