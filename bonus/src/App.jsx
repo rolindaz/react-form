@@ -5,7 +5,8 @@ Aggiungere la possibilità di cancellare ciascun articolo utilizzando un'icona.
 */
 
 // Devo aggiungere in pagina l'icona generandola insieme al list item nel ciclo map
-// Creo una funzione che elimina un post in base all'indice, genera un nuovo array in cui quell'indice non è incluso grazie a filter e richiama il setState per aggiornare la lista
+// Creo una funzione postRemover che elimina un post in base all'indice, genera un nuovo array in cui quell'indice non è incluso grazie a filter e richiama il setState per aggiornare la lista
+// Richiamo il postRemover all'evento onClick del bottone contenente l'icona
 
 /*
 Consegna:
@@ -36,8 +37,8 @@ function App() {
 
   {/* B1: Creo una funzione che elimina un post in base all'indice, genera un nuovo array in cui quell'indice non è incluso grazie a filter e richiama il setState per aggiornare la lista */ }
 
-  function postRemover(i) {
-    const updatedPosts = posts.filter((post, i) => {
+  const postRemover = i => {
+    const updatedPosts = posts.filter((post, index) => {
       return index !== i
     })
     setPosts(updatedPosts)
@@ -49,14 +50,14 @@ function App() {
         <ul className="list-group">
           {/* B1: Aggiungo in pagina l'icona generandola insieme al list item nel ciclo map */}
           {
-            posts.map((post, index) => {
+            posts.map((post, i) => {
               return (
                 <>
-                  <li key={index} className="list-group-item d-flex justify-content-between">
+                  <li key={i} className="list-group-item d-flex justify-content-between">
                     <span>
                       {post.title}
                     </span>
-                    <button className='border-0 bg-transparent'>
+                    <button className='border-0 bg-transparent' onClick={() => { postRemover(i) }}>
                       <i className="bi bi-trash3-fill"></i>
                     </button>
                   </li>
