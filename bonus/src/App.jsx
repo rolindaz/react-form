@@ -15,7 +15,7 @@ Implementare la funzionalità di modifica del titolo di un post.
 */
 
 // Aggiungo in pagina l'icona per la modifica generandola insieme al list item nel ciclo map
-// 
+// Creo una funzione postEditor che modifica un post in base all'indice, genera un nuovo array in cui quell'indice non è incluso grazie a filter e richiama il setState per aggiornare la lista
 
 
 import { useState } from 'react'
@@ -40,6 +40,7 @@ function App() {
     setPosts(updatedPosts)
   }
 
+
   return (
     <>
       <div className="container p-3">
@@ -52,13 +53,17 @@ function App() {
                     <span>
                       {post.title}
                     </span>
-                    {/* B1: Richiamo il postRemover nell'evento onClick del bottone contenente l'icona */}
-                    <button className='border-0 bg-transparent' onClick={() => { postRemover(i) }}>
-                      {/* B1: Aggiungo in pagina l'icona generandola insieme al list item nel ciclo map */}
-                      <i className="bi bi-trash3-fill"></i>
-                      {/* B2: Aggiungo in pagina l'icona per la modifica generandola insieme al list item nel ciclo map */}
-                      <i className="bi bi-pencil-fill"></i>
-                    </button>
+                    <div>
+                      <button className="border-0 bg-transparent">
+                        {/* B2: Aggiungo in pagina l'icona per la modifica generandola insieme al list item nel ciclo map */}
+                        <i className="bi bi-pencil-fill"></i>
+                      </button>
+                      {/* B1: Richiamo il postRemover nell'evento onClick del bottone contenente l'icona */}
+                      <button className='border-0 bg-transparent ms-2' onClick={() => { postRemover(i) }}>
+                        {/* B1: Aggiungo in pagina l'icona generandola insieme al list item nel ciclo map */}
+                        <i className="bi bi-trash3-fill"></i>
+                      </button>
+                    </div>
                   </li>
                 </>
               )
