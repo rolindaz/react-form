@@ -15,7 +15,7 @@ Implementare la funzionalità di modifica del titolo di un post.
 */
 
 // Aggiungo in pagina l'icona per la modifica generandola insieme al list item nel ciclo map
-// Creo una funzione postEditor che modifica un post in base all'indice, genera un nuovo array in cui quell'indice non è incluso grazie a filter e richiama il setState per aggiornare la lista
+
 
 
 import { useState } from 'react'
